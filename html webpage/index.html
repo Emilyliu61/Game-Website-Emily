@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask Duel Game</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1rem;
+            margin: 5px 0 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+            background: #222;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #f4a261;
+        }
+        .hero {
+            position: relative;
+            height: 70vh;
+            background: url('https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/anymeta_anime_theme_park_map_with_anime_eskimo_cute_character_c_0a98ac31-70e3-47cd-818c-f160e4b3535a.png?v=1733104852776/1500x900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+         .hero button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            background-color: #f4a261;
+            color: #000;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .hero button:hover {
+            background-color: #e76f51;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            text-align: center;
+        }
+        .modal-content video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e76f51;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+   
+        .content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(33.333% - 20px);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card h3 {
+            margin: 15px 0 10px;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mask</h1>
+        <p>Unlock Andy's psychological journey by collecting mask fragments and learn about Pseudo-intimacy</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#process">Characters</a>
+        <a href="#Journey">Journey</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+   <section class="hero">
+        <div>
+            <h2>Unmask the Mystery</h2>
+            <button onclick="openModal()">Start Playing</button>
+        </div>
+    </section>
+
+    <!-- Modal for Video -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <video controls>
+                <source src="https://cdn.glitch.me/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/Game%20record.mov?v=1733106015709" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            const modal = document.getElementById('videoModal');
+            modal.style.display = 'flex';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const video = modal.querySelector('video');
+            modal.style.display = 'none';
+            video.pause(); // Pause the video when the modal is closed
+            video.currentTime = 0; // Reset the video to the beginning
+        }
+    </script>
+</body>
+</html>
+
+    <div class="content" id="about">
+        <h2>About Pseudo-intimacy</h2>
+        <p>Players interested in emotions and social interaction，Pseudo-relationships can be described as interactions that give off the appearance of a committed relationship without the depth, intimacy, and commitment that true relationships possess. They are often fueled by convenience, fear of loneliness, or a desire for validation rather than genuine love and connection.Aug 15, 2023-Google
+      </p>
+    </div>
+
+    <div class="content" id="features">
+        <h2>Characters</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/mrleion961_profile_shot_high_school_teenager_high_school_enviro_acac4076-38cd-46eb-a395-7cacb8ceb62d.jpeg?v=1733103258842/300" alt="Feature 1">
+                <h3>Andy</h3>
+                <p>Andy is a young man who just moved to a new city alone, had no friends, 
+                  and had just learned to speak fluent English.</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/IMG_4122.JPG?v=1733103416173" alt="Feature 2">
+                <h3>NPC</h3>
+                <p>He wore a mask at first, but after meeting Andy, he gradually chose to open up his inner self.</p>
+            </div>
+          <div class="card">
+                <img src="https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/Screenshot%202024-11-29%20at%209.12.36%E2%80%AFPM.png?v=1733104291088/300" alt="Feature 3">
+                <h3>Andy's Diary1</h3>
+                <p>Before take off the Mask</p>
+              
+            </div>
+          <div class="card">
+                <img src="https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/Screenshot%202024-11-29%20at%209.12.49%E2%80%AFPM.png?v=1733104294016/300" alt="Feature 3">
+                <h3>Andy's Diary2</h3>
+                <p>After take off the Mask</p>
+              
+            </div>
+            <div class="card">
+                <img src="https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/Screenshot%202024-11-29%20at%209.50.40%E2%80%AFPM.png?v=1733103556193/300" alt="Feature 3">
+                <h3>Game Map</h3>
+                <p>The scene design combines the real city with the abstract emotional world.</p>
+              
+            </div>
+        </div>
+    </div>
+
+    <div class="content" id="gallery">
+        <h2>Game Interface-Andy‘s Journey</h2>
+        <p>At the beginning, Andy will write a diary (negative) about the unfairness or loneliness he encountered in this city. He found that everyone was wearing a hypocritical mask. 
+          As the game progresses, after the game is successfully completed, 
+          Andy will write a new diary about how he took off the NPC's mask step by step through dialogue and felt the beauty of the world.</p>
+        <div class="grid">
+            <div class="card">
+                <img src="https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/Screenshot%202024-11-29%20at%209.49.31%E2%80%AFPM.png?v=1733103706318/300" alt="Gallery 1">
+            </div>
+            <div class="card">
+                <img src="https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/Screenshot%202024-12-01%20at%205.41.09%E2%80%AFPM.png?v=1733103681755/300" alt="Gallery 2">
+            </div>
+            <div class="card">
+                <img src="https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/Screenshot%202024-11-29%20at%2010.13.56%E2%80%AFPM.png?v=1733103709703/300" alt="Gallery 2">
+            </div>
+            <div class="card">
+                <img src="https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/Screenshot%202024-11-29%20at%2010.13.22%E2%80%AFPM.png?v=1733103727517" alt="Gallery 2">
+            </div>
+            <div class="card">
+                <img src="https://cdn.glitch.global/fa6a7c57-8236-4ded-a7a8-9c3f66eb467a/Screenshot%202024-12-01%20at%205.41.09%E2%80%AFPM.png?v=1733103681755/300" alt="Gallery 3">
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>© 2024 Designed by Emily Liu. All Rights Reserved.</p>
+        <p>Contact us: <a href="mailto:info@maskduel.com" style="color: #f4a261;">info@maskduel.com</a></p>
+    </footer>
+</body>
+</html>
